@@ -8,6 +8,35 @@ let btn2 = document.querySelector(".btn2");
 let box1 = [];
 function lotinKril(str) {
   let lotin = new Map([
+    ["A", "А"],
+    ["B", "Б"],
+    ["C", "С"],
+    ["D", "Д"],
+    ["E", "Е"],
+    ["F", "Ф"],
+    ["G", "Г"],
+    ["H", "Х"],
+    ["I", "И"],
+    ["J", "Ж"],
+    ["K", "К"],
+    ["L", "Л"],
+    ["M", "М"],
+    ["N", "Н"],
+    ["O", "О"],
+    ["P", "П"],
+    ["Q", "К"],
+    ["R", "Р"],
+    ["S", "С"],
+    ["T", "Т"],
+    ["U", "У"],
+    ["V", "В"],
+    ["X", "Х"],
+    ["Y", "Й"],
+    ["Z", "З"],
+    ["Ya", "Я"],
+    ["Yu", "Ю"],
+    ["Sh", "Щ"],
+    ["Ch", "Ч"],
     ["a", "а"],
     ["b", "б"],
     ["c", "с"],
@@ -35,6 +64,8 @@ function lotinKril(str) {
     ["z", "з"],
     ["sh", "щ"],
     ["ch", "ч"],
+    ["ya", "я"],
+    ["yu", "ю"],
     [" ", " "],
     [".", "."],
     [",", ","],
@@ -49,8 +80,40 @@ function lotinKril(str) {
     ["7", "7"],
     ["8", "8"],
   ]);
-  let satr = str.toLowerCase().split("");
+  let satr = str.split("");
   for (let i = 0; i < satr.length; i++) {
+    if (satr[i] === "s" && satr[i + 1] === "h") {
+      satr[i] = "sh";
+      satr[i + 1] = "";
+    }
+    if (satr[i] === "c" && satr[i + 1] === "h") {
+      satr[i] = "ch";
+      satr[i + 1] = "";
+    }
+    if (satr[i] === "y" && satr[i + 1] === "u") {
+      satr[i] = "yu";
+      satr[i + 1] = "";
+    }
+    if (satr[i] === "y" && satr[i + 1] === "a") {
+      satr[i] = "ya";
+      satr[i + 1] = "";
+    }
+    if (satr[i] === "S" && satr[i + 1] === "h") {
+      satr[i] = "Sh";
+      satr[i + 1] = "";
+    }
+    if (satr[i] === "C" && satr[i + 1] === "h") {
+      satr[i] = "Ch";
+      satr[i + 1] = "";
+    }
+    if (satr[i] === "Y" && satr[i + 1] === "u") {
+      satr[i] = "Yu";
+      satr[i + 1] = "";
+    }
+    if (satr[i] === "Y" && satr[i + 1] === "a") {
+      satr[i] = "Ya";
+      satr[i + 1] = "";
+    }
     box1.push(lotin.get(satr[i]));
   }
   let natija1 = box1.join("");
@@ -69,6 +132,36 @@ btn1.addEventListener("click", () => {
 let box2 = [];
 function KrilLotin(str) {
   let lotin = new Map([
+    ["А", "A"],
+    ["Б", "B"],
+    ["С", "C"],
+    ["Д", "D"],
+    ["Е", "E"],
+    ["Ф", "F"],
+    ["Г", "G"],
+    ["Х", "H"],
+    ["И", "I"],
+    ["Ж", "J"],
+    ["К", "K"],
+    ["Л", "L"],
+    ["М", "M"],
+    ["Н", "N"],
+    ["О", "O"],
+    ["П", "P"],
+    ["К", "Q"],
+    ["Р", "R"],
+    ["С", "S"],
+    ["Т", "T"],
+    ["У", "U"],
+    ["В", "V"],
+    ["Х", "X"],
+    ["Й", "Y"],
+    ["Я", "Ya"],
+    ["Ю", "Yu"],
+    ["Щ", "Sh"],
+    ["Ш", "Sh"],
+    ["Ч", "Ch"],
+    ["З", "Z"],
     ["а", "a"],
     ["б", "b"],
     ["с", "c"],
@@ -111,7 +204,7 @@ function KrilLotin(str) {
     ["8", "8"],
     ["9", "9"],
   ]);
-  let satr = str.toLowerCase().split("");
+  let satr = str.split("");
   for (let i = 0; i < satr.length; i++) {
     box2.push(lotin.get(satr[i]));
   }
